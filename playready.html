@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>videojs-contrib-hls embed</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/alt/video-js-cdn.css" rel="stylesheet">
+  <script src="https://vjs.zencdn.net/5.10.2/video.js"></script>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-dash/2.5.1/videojs-dash.min.js"></script>
+
+<video id=example-video width=600 height=300 class="video-js vjs-default-skin" controls></video>
+</head>
+
+
+<script>
+var player = videojs('example-video');
+
+player.ready(function() {
+  player.src({
+    src: 'https://movin.platzi.com/397490_8f686a6fe986700a168109768252873b/397490.mpd',
+    type: 'application/dash+xml',
+    keySystemOptions: [
+      {
+        name: 'com.microsoft.playready',
+        options: {
+          //"licenseUrl": "http://pr.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNN6gAAABg3yvS3BTdWDmypejpA3NWns2DI9F58N74MTq9_Vx0ChfpezJmIKMPbhj_wPNXcZqlCWjMfN_YL13uH2QQDlscPr5II0p6tfAvwzn2-ZFQzdzLlt6CzCAWEXuvzhPbbq6FhvbJgFspGysU013P8ClQMnwKQR0"
+
+            "licenseUrl":"https://wv.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNN1EAAABgkSvGkztr6JPzn0jUW9-2hVz4lSWZVgWy_Q3AdrfMY0QQA7IpXgARVpbT0ejAIB6v9mWyZO-pAhrBIexJt7m3ieqG_w8ltdSgpvvE8n-d9o3FlwT9b1SlckQ3iDxxWglj9WMv-jj1llhU8OWgFo8SxTsW0tE",
+
+        }
+      },
+      {
+        name: 'com.widevine.alpha',
+        options: {
+          "licenseUrl": "https://wv.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNKckAAABQhbHKnQHeMmsFiPK4RHBEsLbwazi7erykKl5vCCTbh17QBSpXgM6Fx2GbvwioRmg_pKwpHqXgp_q3p2UjU8-SIoBYxtmuyw3kDeknlRhIkT86Bx9Kj0Zv1hwsZQG98Sozi_Tdrg",
+        }
+      }
+    ]
+  });
+
+  player.play();
+
+
+//{"licenseAcquisitionUrl":"http://pr.service.expressplay.com/playready/RightsManager.asmx","token":"AQAAABNNN2sAAABgNlzJjcMWLY7Uc8F9U2ruRtFPns5LCqQg2wa682TYPQz9VWSvmXUOzlSrX_lAOCU6OESPGQCVwQ1OiJyDMN2zKloHCmP3MspNhCwaSURdcTQebO-7dXjSDv8x3M4QEb6f3li7knp99S4j-VWuaEDe7h-Dj1g"}
+//"playready":{"LA_URL":"http://pr.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNN6gAAABg3yvS3BTdWDmypejpA3NWns2DI9F58N74MTq9_Vx0ChfpezJmIKMPbhj_wPNXcZqlCWjMfN_YL13uH2QQDlscPr5II0p6tfAvwzn2-ZFQzdzLlt6CzCAWEXuvzhPbbq6FhvbJgFspGysU013P8ClQMnwKQR0","customData":"AQAAABNNN6gAAABg3yvS3BTdWDmypejpA3NWns2DI9F58N74MTq9_Vx0ChfpezJmIKMPbhj_wPNXcZqlCWjMfN_YL13uH2QQDlscPr5II0p6tfAvwzn2-ZFQzdzLlt6CzCAWEXuvzhPbbq6FhvbJgFspGysU013P8ClQMnwKQR0"}
+//{"widevine":{"LA_URL":"https://wv.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNKZgAAABQE_XC08AX5OAm5D0oZJI_lE21D59oXMNHLqgsi9iWRFbf-0QSiwgVccfnWWP8jURoemN9XPhw50v_HPbSaplHiLNUGLfA1LPZziKOV5WohSwm5mwOS73C-108azSdd1-LweclNA"}
+//{"widevine":{"LA_URL":"https://wv.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNKa8AAABQXXHxzMPctjlhO-qwgbVrA0wCW3Zm_COQxor7xs0eDQhvrYvv3i4LmbLMkQ0V98yGI9ET5wVMtNib6ee4hB2z1GhSBD-hiULadjK4UCV-sMaMdbdl9dd12SM3Jv83K2G8ABEjTg"}
+//{"widevine":
+/*{"widevine":{"LA_URL":"https://wv.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNKbkAAABQ0mVH9FCSUIRGz2GH2UvsLUwlUNxCczVEU7JA-qKY08KTZIoh2J4u6JchchFUhWwdZFMTXkGMMfKl4PhDwrQYL19M6OSOlBtjWYdyROeSRUrMATId-aUEF8fSanC0473i7d5sdQ"},"playready":{"LA_URL":"http://pr.service.expressplay.com/playready/RightsManager.asmx","customData":"AQAAABNNN1UAAABgyEBwLN8WaZScXR7-6dI3JTdX4tydcJ7x1LnxgypHNF5WdBVBD2eAC835HYfXkfopJ3NvQveEEI0o8psJNMWP5KdiUcFgJrG6mR8SGbtJ5BRKYP8vfoR97qspturZnVkUGkbtLcoxjEdQAgaW_wg4AO8Y4Lw","body":{"licenseAcquisitionUrl":"http://pr.service.expressplay.com/playready/RightsManager.asmx","token":"AQAAABNNN1UAAABgyEBwLN8WaZScXR7-6dI3JTdX4tydcJ7x1LnxgypHNF5WdBVBD2eAC835HYfXkfopJ3NvQveEEI0o8psJNMWP5KdiUcFgJrG6mR8SGbtJ5BRKYP8vfoR97qspturZnVkUGkbtLcoxjEdQAgaW_wg4AO8Y4Lw"}},"fairplay":{"LA_URL":"http://fp.service.expressplay.com:80/hms/fp/rights/?ExpressPlayToken=AQAAABNNKZ4AAABQadZCG_0kPK8KyG_f9EIDUx4NvBLlnzRFBfO0ax6HLG1GkVWn6ZonR6pSyjB_i_vZz0R4ijkoLXVIMtsa3bSiUmur1M6-5Nt0CXIGW3zHREQwxCpHaj_YyyQDcoQry4-J0jkPPw","certificateURL":"http://d1edc9pg32bvhh.cloudfront.net/fairplay.cer"}}%            */
+});
+</script>
+</html>

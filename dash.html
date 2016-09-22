@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>videojs-contrib-hls embed</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/alt/video-js-cdn.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/video.js"></script>
+  <script src="http://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <script src="videojs-dash.js"></script>
+
+</head>
+<video id=example-video width=600 height=300 class="video-js vjs-default-skin" controls></video>
+<script src="video.js"></script>
+
+<!-- Dash.js -->
+<script src="dash.all.min.js"></script>
+
+<!-- videojs-contrib-dash script -->
+<script src="videojs-dash.min.js"></script>
+
+<script>
+var player = videojs('example-video');
+
+player.ready(function() {
+  player.src({
+    src: 'https://s3-us-west-1.amazonaws.com/connor-videocontent/vod-output/396247_4d8a1b35f3f1342fb45b8fdd9c67592c/396247.mpd',
+    type: 'application/dash+xml',
+    keySystemOptions: [
+      {
+        name: 'com.widevine.alpha',
+        options: {
+          "licenseUrl": "http://pr.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNN6gAAABg3yvS3BTdWDmypejpA3NWns2DI9F58N74MTq9_Vx0ChfpezJmIKMPbhj_wPNXcZqlCWjMfN_YL13uH2QQDlscPr5II0p6tfAvwzn2-ZFQzdzLlt6CzCAWEXuvzhPbbq6FhvbJgFspGysU013P8ClQMnwKQR0"
+        }
+      }
+    ]
+  });
+
+  player.play();
+//"playready":{"LA_URL":"http://pr.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNN6gAAABg3yvS3BTdWDmypejpA3NWns2DI9F58N74MTq9_Vx0ChfpezJmIKMPbhj_wPNXcZqlCWjMfN_YL13uH2QQDlscPr5II0p6tfAvwzn2-ZFQzdzLlt6CzCAWEXuvzhPbbq6FhvbJgFspGysU013P8ClQMnwKQR0","customData":"AQAAABNNN6gAAABg3yvS3BTdWDmypejpA3NWns2DI9F58N74MTq9_Vx0ChfpezJmIKMPbhj_wPNXcZqlCWjMfN_YL13uH2QQDlscPr5II0p6tfAvwzn2-ZFQzdzLlt6CzCAWEXuvzhPbbq6FhvbJgFspGysU013P8ClQMnwKQR0"}
+//{"widevine":{"LA_URL":"https://wv.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNKZgAAABQE_XC08AX5OAm5D0oZJI_lE21D59oXMNHLqgsi9iWRFbf-0QSiwgVccfnWWP8jURoemN9XPhw50v_HPbSaplHiLNUGLfA1LPZziKOV5WohSwm5mwOS73C-108azSdd1-LweclNA"}
+//{"widevine":{"LA_URL":"https://wv.service.expressplay.com/hms/wv/rights/?ExpressPlayToken=AQAAABNNKa8AAABQXXHxzMPctjlhO-qwgbVrA0wCW3Zm_COQxor7xs0eDQhvrYvv3i4LmbLMkQ0V98yGI9ET5wVMtNib6ee4hB2z1GhSBD-hiULadjK4UCV-sMaMdbdl9dd12SM3Jv83K2G8ABEjTg"}
+//{"widevine":
+
+});
+</script>
+</html>

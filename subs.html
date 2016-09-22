@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Video.js Text Descriptions, Chapters &amp; Captions Example</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/alt/video-js-cdn.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/video.js"></script>
+
+</head>
+<body>
+  <p style="background-color:#eee; border: 1px solid #777; padding: 10px; font-size: .8em; line-height: 1.5em; font-family: Verdana, sans-serif;">This page demonstrates a text descriptions track (intended primarily for blind and visually impaired consumers of visual media)</p>
+
+  <!-- NOTE: we have to disable native Text Track support for the HTML5 tech,
+             since even HTML5 video players with native Text Track support
+             don't currently support 'description' text tracks in any
+             useful way! -->
+  <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="360"
+      data-setup='{ "html5" : { "nativeTextTracks" : false } }'>
+    <source src="https://archive.org/download/ElephantsDream/ed_hd.mp4" type="video/mp4">
+    <source src="https://archive.org/download/ElephantsDream/ed_hd.ogv" type="video/ogv">
+
+    <track kind="captions" src="subs.en.vtt" srclang="en" label="English" default></track><!-- Tracks need an ending tag thanks to IE9 -->
+    <track kind="captions" src="subs.es.vtt" srclang="sv" label="Swedish"></track>
+
+
+
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+</body>
+</html>
